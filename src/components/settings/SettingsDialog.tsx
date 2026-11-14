@@ -21,6 +21,9 @@ import { regionCodes, getRegionName, provinces } from '../../services/location.j
 import {
   isChineseBrowser,
   setLocale,
+  setBackgroundImage,
+  setBackgroundOpacity,
+  setBackgroundOverlay,
   setLocation,
   setThemePreference,
   setTtsVoice,
@@ -97,6 +100,7 @@ const SettingsContent = () => {
           {section === 'general' ? (
             <>
               <ThemeSetting />
+              <BackgroundSetting />
               <LocaleSetting />
               <TtsVoiceSetting />
               <LocationSetting />
@@ -389,6 +393,110 @@ const ThemeSetting = () => {
           </button>
         ))}
       </div>
+    </div>
+  )
+}
+
+/** 背景设置：图片以 data URL 保存，支持实时预览、清除、透明度和遮罩。 */
+const BackgroundSetting = () => {
+  const t = useTranslate()
+  const inputRef = useRef<HTMLInputElement>(null)
+  const image = useSettings((state) => state.backgroundImage)
+  const opacity = useSettings((state) => state.backgroundOpacity)
+  const overlay = useSettings((state) => state.backgroundOverlay)
+  const readImage = (file: File) => {
+    const reader = new FileReader()
+    reader.onload = () => {
+      if (typeof reader.result === 'string') {
+        setBackgroundImage(reader.result)
+      }
+    }
+    reader.readAsDataURL(file)
+  }
+  return (
+    <div className={styles.backgroundSetting}>
+      <div className={styles.backgroundHeader}>
+        <div className={styles.text}>
+          <div className={styles.label}>{t('settingsBackground')}</div>
+          <div className={styles.description}>{t('settingsBackgroundDescription')}</div>
+        </div>
+        <div className={styles.backgroundActions}>
+          <Button
+            variant="outlined"
+            size="m"
+            className={styles.cellButton}
+            onClick={() => inputRef.current?.click()}
+          >
+            {t('settingsBackgroundChoose')}
+          </Button>
+          <Button
+            variant="outlined"
+            size="m"
+            className={styles.cellButton}
+            disabled={!image}
+            onClick={() => setBackgroundImage(null)}
+          >
+            {t('settingsBackgroundClear')}
+          </Button>
+          <input
+            ref={inputRef}
+            hidden
+            type="file"
+            accept="image/png,image/jpeg,image/webp,image/gif,image/avif"
+            onChange={(event) => {
+              const file = event.target.files?.[0]
+              event.target.value = ''
+              if (file) {
+                readImage(file)
+              }
+            }}
+          />
+        </div>
+      </div>
+      {image ? (
+        <div
+          className={styles.backgroundPreview}
+          style={{
+            backgroundImage:
+              'linear-gradient(rgba(0,0,0,' +
+              overlay +
+              '), rgba(0,0,0,' +
+              overlay +
+              ')), url(' +
+              JSON.stringify(image) +
+              ')',
+          }}
+          aria-label={t('settingsBackgroundPreview')}
+        />
+      ) : null}
+      <label className={styles.rangeRow} htmlFor="settings-background-opacity">
+        <span>{t('settingsBackgroundOpacity')}</span>
+        <output>{Math.round(opacity * 100)}%</output>
+      </label>
+      <input
+        id="settings-background-opacity"
+        className={styles.range}
+        type="range"
+        min="0"
+        max="1"
+        step="0.01"
+        value={opacity}
+        onChange={(event) => setBackgroundOpacity(Number(event.target.value))}
+      />
+      <label className={styles.rangeRow} htmlFor="settings-background-overlay">
+        <span>{t('settingsBackgroundOverlay')}</span>
+        <output>{Math.round(overlay * 100)}%</output>
+      </label>
+      <input
+        id="settings-background-overlay"
+        className={styles.range}
+        type="range"
+        min="0"
+        max="0.85"
+        step="0.01"
+        value={overlay}
+        onChange={(event) => setBackgroundOverlay(Number(event.target.value))}
+      />
     </div>
   )
 }

@@ -169,4 +169,11 @@ export const zh = {
   latestReminderLanguage: '中文',
   settingsLocaleZhCN: '简体中文',
   settingsLocaleEnUS: 'English',
+  settingsBackground: '聊天背景',
+  settingsBackgroundDescription: '选择图片作为聊天背景，设置会保存在本机。',
+  settingsBackgroundChoose: '选择图片',
+  settingsBackgroundClear: '清除',
+  settingsBackgroundPreview: '聊天背景预览',
+  settingsBackgroundOpacity: '图片透明度',
+  settingsBackgroundOverlay: '遮罩强度',
 } as const

@@ -251,3 +251,55 @@ body {
 
   --dsw-font-xs-13: 13px/20px var(--dsw-font-family);
 }
+
+/* e621ng inspired palette: slate blue surfaces, warm gold accent, compact controls. */
+:root {
+  --e621-background: #152f56;
+  --e621-foreground: #1f3c67;
+  --e621-section: #263f63;
+  --e621-section-light: #315176;
+  --e621-section-dark: #122846;
+  --e621-text: #f4f6fa;
+  --e621-text-muted: #b8c4d4;
+  --e621-link: #ddc676;
+  --e621-link-hover: #f0d98b;
+  --e621-green: #227d2a;
+  --e621-red: #76312e;
+  --e621-border: rgba(255, 255, 255, 0.14);
+  --e621-shadow: 0 2px 8px rgba(0, 0, 0, 0.24);
+  --e621-radius: 4px;
+  --dsw-font-family: Verdana, Geneva, sans-serif;
+  --ds-font-size-m: 14px;
+}
+
+body[data-ds-dark-theme] {
+  --e621-background: #101f38;
+  --e621-foreground: #172d4e;
+  --e621-section: #203b61;
+  --e621-section-light: #2a4a74;
+  --e621-section-dark: #0d1b31;
+  --e621-text: #f4f6fa;
+  --e621-text-muted: #aebbd0;
+  --e621-border: rgba(255, 255, 255, 0.16);
+}
+
+/* Keep the application's semantic tokens aligned with e621ng's theme roles. */
+body {
+  --dsw-alias-bg-base: var(--e621-background);
+  --dsw-alias-bg-layer-2: var(--e621-foreground);
+  --dsw-alias-bg-layer-3: var(--e621-section);
+  --dsw-alias-brand-primary: var(--e621-link);
+  --dsw-alias-brand-text: var(--e621-link);
+  --dsw-alias-button-primary-fill: var(--e621-link);
+  --dsw-alias-button-primary-hover: var(--e621-link-hover);
+  --dsw-alias-label-primary: var(--e621-text);
+  --dsw-alias-label-secondary: var(--e621-text-muted);
+  --dsw-alias-label-tertiary: #8fa2bd;
+  --dsw-alias-border-l1: var(--e621-border);
+  --dsw-alias-border-l2: var(--e621-border);
+  --dsw-specific-sidebar-fill: var(--e621-foreground);
+  --dsw-specific-sidebar-nav-item-active-accent: var(--e621-section-light);
+  --dsw-specific-sidebar-nav-item-hover: var(--e621-section);
+  --dsw-specific-input-major: var(--e621-section-dark);
+  --dsw-specific-menu: var(--e621-section);
+}

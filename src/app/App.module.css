@@ -4,6 +4,31 @@
   display: flex;
   overflow: hidden;
   background-color: var(--dsw-alias-bg-base);
+  isolation: isolate;
+
+  &::before,
+  &::after {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    content: '';
+  }
+
+  &::before {
+    z-index: -2;
+    background-image: var(--chat-background-image);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: var(--chat-background-opacity);
+    transition: opacity var(--ds-transition-duration-slow) var(--ds-ease-in-out);
+  }
+
+  &::after {
+    z-index: -1;
+    background: var(--dsw-alias-bg-base);
+    opacity: var(--chat-background-overlay);
+  }
 }
 
 .main {
@@ -50,6 +75,36 @@
   color: var(--dsw-alias-label-secondary);
   font-size: 14px;
   text-align: center;
+}
+
+/* e621ng layout surfaces: clear navigation rail and framed content area. */
+.frame {
+  background: var(--e621-background);
+}
+
+.main {
+  background: var(--e621-foreground);
+}
+
+.content {
+  background: var(--e621-background);
+}
+
+.saveError {
+  border: 1px solid rgba(254, 106, 100, 0.5);
+  border-radius: 4px;
+  margin: 8px 12px;
+  background: var(--e621-red);
+}
+
+.loadingState {
+  color: var(--e621-text-muted);
+}
+
+@media (min-width: 768px) {
+  .main {
+    box-shadow: inset 1px 0 0 var(--e621-border);
+  }
 }
 
 @media not all and (min-width: 768px) {

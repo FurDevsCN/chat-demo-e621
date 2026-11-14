@@ -178,4 +178,11 @@ export const en = {
   latestReminderLanguage: 'English',
   settingsLocaleZhCN: 'Simplified Chinese',
   settingsLocaleEnUS: 'English',
+  settingsBackground: 'Chat background',
+  settingsBackgroundDescription: 'Choose a local image and keep it on this device.',
+  settingsBackgroundChoose: 'Choose image',
+  settingsBackgroundClear: 'Clear',
+  settingsBackgroundPreview: 'Chat background preview',
+  settingsBackgroundOpacity: 'Image opacity',
+  settingsBackgroundOverlay: 'Overlay strength',
 } satisfies Record<keyof typeof zh, string>

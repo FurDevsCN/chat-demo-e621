@@ -312,13 +312,17 @@
 
 .md-code-block {
   --dsl-code-block-banner-background-color: var(--dsw-alias-markdown-code-block-banner);
-  --dsl-code-block-border-radius: 12px;
+  --dsl-code-block-border-radius: 4px;
   --dsl-code-block-banner-font: var(--dsw-font-xs-13);
   --dsl-code-block-content-font: var(--dsw-font-markdown-code-block);
 
   color: var(--dsw-alias-label-primary);
   background: var(--dsw-alias-markdown-code-block);
+  border: 1px solid var(--dsw-alias-border-l2);
+  border-left: 4px solid var(--dsw-alias-button-primary-fill);
   border-radius: var(--dsl-code-block-border-radius);
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 18%);
 }
 
 .md-code-block:not(:last-child) {
@@ -330,16 +334,21 @@
   display: flex;
   justify-content: space-between;
   font: var(--dsl-code-block-banner-font);
+  border-bottom: 1px solid var(--dsw-alias-border-l1);
   border-top-left-radius: var(--dsl-code-block-border-radius);
   border-top-right-radius: var(--dsl-code-block-border-radius);
 }
 
 .md-code-block > pre {
   font: var(--dsl-code-block-content-font);
-  padding: 16px;
+  padding: 14px 16px;
   margin: 0 !important;
+  color: var(--dsw-alias-label-primary);
+  background: var(--dsw-alias-markdown-code-block);
+  overflow-x: auto;
   white-space: pre-wrap;
-  word-break: break-all;
+  word-break: break-word;
+  tab-size: 2;
 }
 
 .markdown-table-wrapper {

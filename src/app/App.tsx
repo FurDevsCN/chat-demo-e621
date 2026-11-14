@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, type CSSProperties } from 'react'
 import { useTranslate } from '../i18n/index.js'
 import { useSettings } from '../services/settings.js'
 import { useIsMobile, useMobileViewport, usePreventPageScroll } from './viewport.js'
@@ -30,6 +30,9 @@ export const App = () => {
   const t = useTranslate()
   const isMobile = useIsMobile()
   const locale = useSettings((state) => state.locale)
+  const backgroundImage = useSettings((state) => state.backgroundImage)
+  const backgroundOpacity = useSettings((state) => state.backgroundOpacity)
+  const backgroundOverlay = useSettings((state) => state.backgroundOverlay)
   // 移动端侧边栏以独立抽屉管理开合状态
   const siderCollapsed = useSettings((state) => state.siderCollapsed) && !isMobile
   const ready = useChatStore((state) => state.ready)
@@ -75,7 +78,20 @@ export const App = () => {
 
   return (
     <>
-      <div ref={frameRef} className={styles.frame}>
+      <div
+        ref={frameRef}
+        className={styles.frame}
+        data-e621-active="true"
+        style={
+          {
+            '--chat-background-image': backgroundImage
+              ? 'url("' + backgroundImage.replace(/[\\"']/g, '') + '")'
+              : 'none',
+            '--chat-background-opacity': backgroundImage ? backgroundOpacity : 0,
+            '--chat-background-overlay': backgroundImage ? backgroundOverlay : 1,
+          } as CSSProperties
+        }
+      >
         {isMobile ? <MobileSider /> : siderCollapsed ? null : <Sider />}
         <main className={styles.main}>
           {saveError ? (

@@ -43,6 +43,57 @@ body.change-theme *::after {
   transition: none !important;
 }
 
+/* e621ng compact global controls and scrollbar treatment. */
+html {
+  background: var(--e621-background);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button,
+input,
+select {
+  border-radius: var(--e621-radius);
+}
+
+button {
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+a {
+  color: var(--e621-link);
+}
+
+a:hover {
+  color: var(--e621-link-hover);
+}
+
+::selection {
+  background: rgba(221, 198, 118, 0.35);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--e621-section-light) transparent;
+}
+*::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+*::-webkit-scrollbar-thumb {
+  background: var(--e621-section-light);
+  border-radius: 5px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
 @media not all and (min-width: 768px) {
   html,
   body,

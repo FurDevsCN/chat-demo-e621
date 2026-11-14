@@ -17,6 +17,9 @@ type Settings = {
   thinking: boolean
   search: boolean
   siderCollapsed: boolean
+  backgroundImage: string | null
+  backgroundOpacity: number
+  backgroundOverlay: number
 }
 
 const KEYS = {
@@ -28,6 +31,9 @@ const KEYS = {
   thinking: 'chat-demo:thinking',
   search: 'chat-demo:search',
   siderCollapsed: 'chat-demo:sider-collapsed',
+  backgroundImage: 'chat-demo:background-image',
+  backgroundOpacity: 'chat-demo:background-opacity',
+  backgroundOverlay: 'chat-demo:background-overlay',
 } as const
 
 const read = (key: string) => {
@@ -87,6 +93,11 @@ const initialThemePreference = (): ThemePreference => {
 /** 未保存过时使用服务端默认音色 stella（海星） */
 const initialTtsVoice = (): TtsVoice => (read(KEYS.ttsVoice) === 'tide' ? 'tide' : 'stella')
 
+const readRatio = (key: string, fallback: number) => {
+  const value = Number(read(key))
+  return Number.isFinite(value) ? Math.min(1, Math.max(0, value)) : fallback
+}
+
 export const useSettings = create<Settings>(() => ({
   apiKey: read(KEYS.apiKey),
   locale: initialLocale(),
@@ -96,6 +107,9 @@ export const useSettings = create<Settings>(() => ({
   thinking: read(KEYS.thinking) === 'true',
   search: read(KEYS.search) === 'true',
   siderCollapsed: read(KEYS.siderCollapsed) === 'true',
+  backgroundImage: read(KEYS.backgroundImage),
+  backgroundOpacity: readRatio(KEYS.backgroundOpacity, 0.35),
+  backgroundOverlay: readRatio(KEYS.backgroundOverlay, 0.2),
 }))
 
 export const setLocale = (locale: Locale) => {
@@ -137,4 +151,21 @@ export const setSearch = (search: boolean) => {
 export const setSiderCollapsed = (siderCollapsed: boolean) => {
   write(KEYS.siderCollapsed, String(siderCollapsed))
   useSettings.setState({ siderCollapsed })
+}
+
+export const setBackgroundImage = (backgroundImage: string | null) => {
+  write(KEYS.backgroundImage, backgroundImage)
+  useSettings.setState({ backgroundImage })
+}
+
+export const setBackgroundOpacity = (backgroundOpacity: number) => {
+  const value = Math.min(1, Math.max(0, backgroundOpacity))
+  write(KEYS.backgroundOpacity, String(value))
+  useSettings.setState({ backgroundOpacity: value })
+}
+
+export const setBackgroundOverlay = (backgroundOverlay: number) => {
+  const value = Math.min(1, Math.max(0, backgroundOverlay))
+  write(KEYS.backgroundOverlay, String(value))
+  useSettings.setState({ backgroundOverlay: value })
 }
