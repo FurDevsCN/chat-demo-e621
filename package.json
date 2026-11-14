@@ -1,7 +1,7 @@
 {
-  "name": "chat-demo",
+  "name": "chat-demo-e621",
   "version": "0.1.1",
-  "description": "基于 DeepSeek API 的静态聊天示例。",
+  "description": "基于 DeepSeek API 的静态聊天应用，采用 e621 经典蓝色主题。",
   "license": "MIT",
   "private": true,
   "type": "module",

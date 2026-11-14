@@ -1,23 +1,37 @@
-# chat-demo
+# chat-demo-e621 · e621-themed chat app
 
-English | [简体中文](README.zh-CN.md)
+[简体中文](README.zh-CN.md) | English
 
-A static chat demo powered by the DeepSeek API. No application backend is required: the browser connects directly to the configured API service.
+A static chat app powered by the DeepSeek API, restyled after e621's classic blue theme: deep navy panels, pale-blue links, gold accents, and the signature hexagonal texture background. No application backend is required — the browser talks directly to the configured API service.
 
-You can [try the app online](https://deepseek-ai.github.io/chat-demo/) or download the archive from [Releases](https://github.com/deepseek-ai/deepseek-chat-demo/releases), extract it, and double-click `index.html` to use it locally without installation or a build. Enter your API key in Settings before your first chat.
+## Preview
+
+| Welcome screen | Conversation |
+| --- | --- |
+| ![Welcome screen](20261114_111933.png) | ![Conversation](20261114_111823.png) |
+
+## Theme features
+
+- **e621 palette** — deep navy panels, pale-blue links, and gold accents.
+- **Hexagonal texture** — e621's signature 168×194 hexagon pattern is the default background.
+- **Custom background** — in Settings, upload a local image or paste an image URL, then tune opacity and the dark overlay.
+- **e621 controls** — square switches, square range thumbs, and gold active states.
+- **e621 code highlighting** — syntax colors recolored to match the theme.
 
 ## Getting started
 
 Install Node.js 22.12+ and pnpm, then run:
 
 ```sh
-git clone https://github.com/deepseek-ai/chat-demo.git
-cd chat-demo
+git clone https://github.com/xiaohuangbo/chat-demo-e621.git
+cd chat-demo-e621
 pnpm install
 pnpm dev
 ```
 
 Open http://localhost:8090.
+
+You can [try the app online](https://e926chat.fur0.com/) or download an archive from [Releases](https://github.com/xiaohuangbo/chat-demo-e621/releases), extract it, and double-click `index.html` to use it locally without installation or a build. Enter your API key in Settings before your first chat.
 
 To build the static site:
 

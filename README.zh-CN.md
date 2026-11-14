@@ -1,23 +1,37 @@
-# chat-demo
+# chat-demo-e621 · e621 主题聊天应用
 
-[English](README.md) | 简体中文
+简体中文 | [English](README.md)
 
-基于 DeepSeek API 的静态聊天示例。无需应用后端，浏览器直接请求配置的 API 服务。
+基于 DeepSeek API 的静态聊天应用，采用 e621 经典蓝色主题：深海军蓝面板、淡蓝链接、金色强调与标志性的六边形纹理背景。无需应用后端，浏览器直接请求配置的 API 服务。
 
-点击 [在线体验](https://deepseek-ai.github.io/chat-demo/) 即可使用，也可以前往 [Releases](https://github.com/deepseek-ai/deepseek-chat-demo/releases) 下载压缩包，解压后双击 `index.html` 在本地使用，无需安装或构建。首次使用时，请在设置中填写 API Key。
+## 效果预览
+
+| 欢迎页 | 对话界面 |
+| --- | --- |
+| ![欢迎页](20261114_111933.png) | ![对话界面](20261114_111823.png) |
+
+## 主题特性
+
+- **e621 配色**：深海军蓝面板、淡蓝链接与金色强调。
+- **六边形纹理**：默认背景为 e621 标志性的 168×194 六边形图案。
+- **自定义背景**：在设置中上传本地图片或粘贴图片网址，并可调节透明度与暗色遮罩。
+- **e621 控件**：方形开关、方形拖动球与金色激活态。
+- **e621 代码高亮**：语法配色同步调整为 e621 风格。
 
 ## 运行
 
 准备 Node.js 22.12+ 和 pnpm：
 
 ```sh
-git clone https://github.com/deepseek-ai/chat-demo.git
-cd chat-demo
+git clone https://github.com/xiaohuangbo/chat-demo-e621.git
+cd chat-demo-e621
 pnpm install
 pnpm dev
 ```
 
-打开 http://localhost:8090 。
+打开 http://localhost:8090。
+
+可前往 [在线体验](https://e926chat.fur0.com/)，也可以从 [Releases](https://github.com/xiaohuangbo/chat-demo-e621/releases) 下载压缩包，解压后双击 `index.html` 在本地使用，无需安装或构建。首次使用时，请在设置中填写 API Key。
 
 生成静态产物：
 
