@@ -15,23 +15,24 @@
   }
 
   &::before {
-    z-index: -2;
+    z-index: 0;
     background-image: var(--chat-background-image);
     background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-size: var(--chat-background-size, cover);
+    background-repeat: var(--chat-background-repeat, no-repeat);
     opacity: var(--chat-background-opacity);
     transition: opacity var(--ds-transition-duration-slow) var(--ds-ease-in-out);
   }
 
   &::after {
-    z-index: -1;
+    z-index: 0;
     background: var(--dsw-alias-bg-base);
     opacity: var(--chat-background-overlay);
   }
 }
 
 .main {
+  z-index: 1;
   position: relative;
   display: flex;
   flex-direction: column;

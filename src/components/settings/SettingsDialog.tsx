@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import { useRef, useState, type ReactNode } from 'react'
+import { useRef, useState, type CSSProperties, type ReactNode } from 'react'
 import {
   IconDarkOutline16,
   IconDataOutline16,
@@ -476,6 +476,7 @@ const BackgroundSetting = () => {
       <input
         id="settings-background-opacity"
         className={styles.range}
+        style={{ '--range-progress': `${opacity * 100}%` } as CSSProperties}
         type="range"
         min="0"
         max="1"
@@ -490,6 +491,7 @@ const BackgroundSetting = () => {
       <input
         id="settings-background-overlay"
         className={styles.range}
+        style={{ '--range-progress': `${(overlay / 0.85) * 100}%` } as CSSProperties}
         type="range"
         min="0"
         max="0.85"

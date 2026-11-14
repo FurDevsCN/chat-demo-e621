@@ -86,8 +86,10 @@ export const App = () => {
           {
             '--chat-background-image': backgroundImage
               ? 'url("' + backgroundImage.replace(/[\\"']/g, '') + '")'
-              : 'none',
-            '--chat-background-opacity': backgroundImage ? backgroundOpacity : 0,
+              : 'var(--e621-hex-pattern)',
+            '--chat-background-size': backgroundImage ? 'cover' : '168px 194px',
+            '--chat-background-repeat': backgroundImage ? 'no-repeat' : 'repeat',
+            '--chat-background-opacity': backgroundImage ? backgroundOpacity : 1,
             '--chat-background-overlay': backgroundImage ? backgroundOverlay : 1,
           } as CSSProperties
         }

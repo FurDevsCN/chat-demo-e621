@@ -117,6 +117,86 @@ body:has([data-e621-active]) [role='dialog'] :is([role='tab'], [role='radio']) {
   border-radius: var(--e621-radius);
 }
 
+/* e621 range controls: a compact blue rail with a square gold drag thumb. */
+body:has([data-e621-active]) input[type='range']:not(.range) {
+  height: 6px;
+  margin: 10px 0;
+  border: 1px solid var(--e621-border);
+  border-radius: var(--e621-radius);
+  background: var(--e621-section);
+  accent-color: var(--e621-gold);
+  appearance: none;
+}
+
+body:has([data-e621-active]) input[type='range']:not(.range)::-webkit-slider-thumb {
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--e621-background);
+  border-radius: var(--e621-radius);
+  background: var(--e621-gold);
+  box-shadow: 0 0 0 1px var(--e621-gold);
+  appearance: none;
+  cursor: grab;
+}
+
+body:has([data-e621-active]) input[type='range']:not(.range)::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--e621-background);
+  border-radius: var(--e621-radius);
+  background: var(--e621-gold);
+  box-shadow: 0 0 0 1px var(--e621-gold);
+  cursor: grab;
+}
+
+body:has([data-e621-active]) [role='radio'][aria-checked='true'] {
+  border-color: var(--e621-gold);
+  box-shadow: inset 0 -3px 0 var(--e621-gold);
+}
+
+/* Semantic e621 switch: square rail and a square thumb that travels between both ends. */
+body:has([data-e621-active]) button[role='switch'] {
+  position: relative;
+  width: 40px;
+  height: 24px;
+  padding: 0;
+  border: 1px solid var(--e621-border);
+  border-radius: var(--e621-radius);
+  background: var(--e621-section);
+  color: transparent;
+  box-shadow: none;
+}
+
+body:has([data-e621-active]) button[role='switch']::after {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 16px;
+  height: 16px;
+  border: 1px solid var(--e621-background);
+  border-radius: var(--e621-radius);
+  background: #ffffff;
+  content: '';
+  transition:
+    left var(--ds-transition-duration) var(--ds-ease-in-out),
+    background var(--ds-transition-duration) var(--ds-ease-in-out);
+}
+
+body:has([data-e621-active]) button[role='switch'][aria-checked='true'] {
+  border-color: var(--e621-gold);
+  background: var(--e621-gold);
+}
+
+body:has([data-e621-active]) button[role='switch'][aria-checked='true']::after {
+  left: 19px;
+  background: var(--e621-background);
+}
+
+body:has([data-e621-active]) button[role='switch']:focus-visible {
+  outline: 2px solid var(--e621-gold);
+  outline-offset: 2px;
+}
+
 @media not all and (min-width: 768px) {
   html,
   body,

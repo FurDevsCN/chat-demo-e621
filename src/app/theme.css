@@ -268,6 +268,7 @@ body {
   --e621-link-hover: #e9f2fa;
   --e621-border: #29466c;
   --e621-radius: 4px;
+  --e621-hex-pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='168' height='194' viewBox='0 0 168 194'%3E%3Crect width='168' height='194' fill='%23020f23'/%3E%3Cpath d='M84 1 167 49v96l-83 48-83-48V49L84 1zM84 25l62 36v72l-62 36-62-36V61l62-36z' fill='none' stroke='%23102543' stroke-width='2'/%3E%3C/svg%3E");
   --dsw-font-family: Verdana, Geneva, sans-serif;
   --ds-font-size-m: 14px;
 }
