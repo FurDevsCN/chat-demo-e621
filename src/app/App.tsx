@@ -90,7 +90,7 @@ export const App = () => {
             '--chat-background-size': backgroundImage ? 'cover' : '168px 194px',
             '--chat-background-repeat': backgroundImage ? 'no-repeat' : 'repeat',
             '--chat-background-opacity': backgroundImage ? backgroundOpacity : 1,
-            '--chat-background-overlay': backgroundImage ? backgroundOverlay : 1,
+            '--chat-background-overlay': backgroundImage ? backgroundOverlay : 0.2,
           } as CSSProperties
         }
       >
