@@ -252,54 +252,84 @@ body {
   --dsw-font-xs-13: 13px/20px var(--dsw-font-family);
 }
 
-/* e621ng inspired palette: slate blue surfaces, warm gold accent, compact controls. */
+/* Palette mapped from e621ng's default hexagon theme and dsh-e621-style. */
 :root {
-  --e621-background: #152f56;
+  --e621-background: #020f23;
+  --e621-panel: #152f56;
   --e621-foreground: #1f3c67;
-  --e621-section: #263f63;
-  --e621-section-light: #315176;
-  --e621-section-dark: #122846;
-  --e621-text: #f4f6fa;
-  --e621-text-muted: #b8c4d4;
-  --e621-link: #ddc676;
-  --e621-link-hover: #f0d98b;
-  --e621-green: #227d2a;
+  --e621-section: #25477b;
+  --e621-section-light: #2b538e;
+  --e621-green: #4caf50;
   --e621-red: #76312e;
-  --e621-border: rgba(255, 255, 255, 0.14);
-  --e621-shadow: 0 2px 8px rgba(0, 0, 0, 0.24);
+  --e621-gold: #e8c446;
+  --e621-text: #ffffff;
+  --e621-text-muted: #c8dced;
+  --e621-link: #b4c7d9;
+  --e621-link-hover: #e9f2fa;
+  --e621-border: #29466c;
   --e621-radius: 4px;
   --dsw-font-family: Verdana, Geneva, sans-serif;
   --ds-font-size-m: 14px;
 }
 
+/* Dark mode used to win by selector specificity and leave the old gray palette active.
+   Keep the e621 surface tokens identical in both OS theme modes. */
+body,
 body[data-ds-dark-theme] {
-  --e621-background: #101f38;
-  --e621-foreground: #172d4e;
-  --e621-section: #203b61;
-  --e621-section-light: #2a4a74;
-  --e621-section-dark: #0d1b31;
-  --e621-text: #f4f6fa;
-  --e621-text-muted: #aebbd0;
-  --e621-border: rgba(255, 255, 255, 0.16);
-}
-
-/* Keep the application's semantic tokens aligned with e621ng's theme roles. */
-body {
+  --dsw-font-family: Verdana, Geneva, sans-serif;
   --dsw-alias-bg-base: var(--e621-background);
+  --dsw-alias-bg-layer-1: var(--e621-panel);
   --dsw-alias-bg-layer-2: var(--e621-foreground);
-  --dsw-alias-bg-layer-3: var(--e621-section);
-  --dsw-alias-brand-primary: var(--e621-link);
-  --dsw-alias-brand-text: var(--e621-link);
-  --dsw-alias-button-primary-fill: var(--e621-link);
-  --dsw-alias-button-primary-hover: var(--e621-link-hover);
-  --dsw-alias-label-primary: var(--e621-text);
-  --dsw-alias-label-secondary: var(--e621-text-muted);
-  --dsw-alias-label-tertiary: #8fa2bd;
+  --dsw-alias-bg-layer-3: var(--e621-section-light);
+  --dsw-alias-bg-module-platform: var(--e621-foreground);
+  --dsw-alias-bg-overlay: var(--e621-panel);
+  --dsw-alias-border-inverted: rgba(255, 255, 255, 0.06);
   --dsw-alias-border-l1: var(--e621-border);
   --dsw-alias-border-l2: var(--e621-border);
-  --dsw-specific-sidebar-fill: var(--e621-foreground);
-  --dsw-specific-sidebar-nav-item-active-accent: var(--e621-section-light);
+  --dsw-alias-border-l2-darkmode-thin: var(--e621-border);
+  --dsw-alias-border-l3: #38619a;
+  --dsw-alias-brand-primary: var(--e621-link);
+  --dsw-alias-brand-text: var(--e621-link);
+  --dsw-alias-link: var(--e621-link);
+  --dsw-alias-button-primary-fill: var(--e621-gold);
+  --dsw-alias-button-primary-hover: #f2d65d;
+  --dsw-alias-button-elevated-fill: var(--e621-section);
+  --dsw-alias-button-ghost-active-fill: var(--e621-foreground);
+  --dsw-alias-button-ghost-active-hover: var(--e621-section);
+  --dsw-alias-button-ghost-active-border: var(--e621-gold);
+  --dsw-alias-interactive-bg-active: var(--e621-foreground);
+  --dsw-alias-interactive-bg-hover: var(--e621-section);
+  --dsw-alias-interactive-bg-hover-solid: var(--e621-section);
+  --dsw-alias-interactive-bg-hover-accent: var(--e621-section-light);
+  --dsw-alias-label-primary: var(--e621-text);
+  --dsw-alias-label-primary-foreground: var(--e621-background);
+  --dsw-alias-label-primary-inverted: var(--e621-background);
+  --dsw-alias-label-primary-dimmed: #deebf7;
+  --dsw-alias-label-dimmed: #deebf7;
+  --dsw-alias-label-secondary: var(--e621-text-muted);
+  --dsw-alias-label-tertiary: #adc7df;
+  --dsw-alias-label-caption: #9bb8d2;
+  --dsw-alias-markdown-citation: var(--e621-link);
+  --dsw-alias-markdown-code-block: var(--e621-section);
+  --dsw-alias-markdown-code-block-banner: var(--e621-foreground);
+  --dsw-alias-markdown-inline-code: rgba(255, 255, 255, 0.15);
+  --dsw-alias-markdown-tag: #b4c7d9;
+  --dsw-alias-markdown-placeholder: #b4c7d9;
+  --dsw-alias-state-error-primary: #e45f5f;
+  --dsw-alias-state-error-secondary: #76312e;
+  --dsw-alias-state-success-primary: #4caf50;
+  --dsw-alias-state-warn-primary: #ffd666;
+  --dsw-alias-state-done-primary: #f2ac08;
+  --dsw-specific-sidebar-fill: var(--e621-background);
+  --dsw-specific-sidebar-nav-item-active-accent: var(--e621-gold);
   --dsw-specific-sidebar-nav-item-hover: var(--e621-section);
-  --dsw-specific-input-major: var(--e621-section-dark);
-  --dsw-specific-menu: var(--e621-section);
+  --dsw-specific-bubble: var(--e621-foreground);
+  --dsw-specific-bubble-highlight: var(--e621-foreground);
+  --dsw-specific-input-major: var(--e621-panel);
+  --dsw-specific-login-input: var(--e621-panel);
+  --dsw-specific-menu: var(--e621-panel);
+  --dsw-specific-selector: var(--e621-section);
+  --dsw-alias-toast-bg: var(--e621-panel);
+  --dsw-alias-tooltip-bg: var(--e621-panel);
+  --dsw-elevation-stroke-color: var(--e621-border);
 }

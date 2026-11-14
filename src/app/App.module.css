@@ -77,17 +77,10 @@
   text-align: center;
 }
 
-/* e621ng layout surfaces: clear navigation rail and framed content area. */
-.frame {
-  background: var(--e621-background);
-}
-
-.main {
-  background: var(--e621-foreground);
-}
-
+/* Let the app canvas image show through the conversation area; controls keep their own surfaces. */
+.main,
 .content {
-  background: var(--e621-background);
+  background: transparent;
 }
 
 .saveError {

@@ -61,6 +61,11 @@ select {
   border-radius: var(--e621-radius);
 }
 
+/* CSS-module button classes normally restore their pill radius; e621 buttons are square. */
+body:has([data-e621-active]) :is(button, input:not([type='range']), select, textarea) {
+  border-radius: var(--e621-radius);
+}
+
 button {
   font-weight: 700;
   letter-spacing: 0.01em;
@@ -75,7 +80,7 @@ a:hover {
 }
 
 ::selection {
-  background: rgba(221, 198, 118, 0.35);
+  background: rgba(232, 196, 70, 0.35);
 }
 
 * {
@@ -92,6 +97,24 @@ a:hover {
 }
 *::-webkit-scrollbar-track {
   background: transparent;
+}
+
+/* Modal content is portaled directly under body, outside the app root. */
+body:has([data-e621-active]) > div:has([role='dialog']) {
+  --overlay-opacity: 0.44;
+  background-color: rgba(2, 15, 35, 0.44);
+  backdrop-filter: none;
+}
+
+body:has([data-e621-active]) [role='dialog'] {
+  border: 1px solid var(--e621-border);
+  border-radius: var(--e621-radius);
+  background-color: var(--dsw-alias-bg-layer-2);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+}
+
+body:has([data-e621-active]) [role='dialog'] :is([role='tab'], [role='radio']) {
+  border-radius: var(--e621-radius);
 }
 
 @media not all and (min-width: 768px) {
